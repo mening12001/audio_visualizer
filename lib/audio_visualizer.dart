@@ -70,7 +70,8 @@ class VisualizerPlayer extends ChangeNotifier implements AudioVisualizer {
 
   VisualizerPlayerValue _value = VisualizerPlayerValue();
 
-  VisualizerPlayer() : playerId = "player_${_idCounter++}" {
+  VisualizerPlayer() : playerId = "player_${_idCounter}" {
+    _idCounter = (_idCounter + 1) % 2;
     _channel.setMethodCallHandler(
       _handleNativeCallback,
     );
