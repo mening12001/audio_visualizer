@@ -42,12 +42,6 @@ class MiniAudioPlayer {
         self.mAudioEngine.attach(self.mPlayerNode)
         self.mAudioEngine.connect(self.mPlayerNode, to: self.mAudioEngine.mainMixerNode, format: nil)
 
-        do {
-        try AVAudioSession.sharedInstance().setCategory(.playback, options: [.mixWithOthers])
-        try AVAudioSession.sharedInstance().setActive(true)
-        } catch {
-            print("Error configuring AVAudioSession: \(error)")
-        }
     }
 
     private func getAssetFilePath(assetPath: String) -> String? {
